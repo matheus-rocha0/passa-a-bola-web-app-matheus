@@ -1,1 +1,16 @@
+/* Para garantir que o app ocupe a tela toda */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Adicionando um estilo de scroll mais sutil para o feed FINTA */
+.snap-mandatory::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 @import 'tailwindcss'
