@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
-import { Trophy, Mail, Lock, User } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth.js';
+import { User, Mail, Lock, Trophy } from 'lucide-react';
 
-const RegisterPage = ({ onNavigate }) => {
+const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const { register } = useAuth();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
     setError('');
     setSuccess('');
-    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    if (users.find((u) => u.email === email)) {
-      setError('Este e-mail já está em uso.');
-      return;
+    // A função register agora vem do nosso contexto global
+    const result = register(name, email, password);
+
+    if (result.success) {
+      setSuccess(result.message);
+      // Redireciona para o login após 1 segundo
+      setTimeout(() => navigate('/login'), 1000);
+    } else {
+      setError(result.message);
     }
-
-    const newUser = { name, email, password };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-    setSuccess('Cadastro realizado com sucesso! Você já pode fazer o login.');
-    setTimeout(() => onNavigate('login'), 2000);
   };
 
   return (
-    <div className="min-h-full flex flex-col items-center justify-center bg-white dark:bg-gray-900 px-4">
+    <div className="min-h-full w-full flex flex-col items-center justify-center bg-white dark:bg-gray-900 px-4">
       <div className="w-full max-w-md space-y-8">
         <div>
           <Trophy size={48} className="mx-auto text-[#b554b5]" />
@@ -84,7 +87,6 @@ const RegisterPage = ({ onNavigate }) => {
               />
             </div>
           </div>
-
           <div>
             <button
               type="submit"
@@ -96,12 +98,13 @@ const RegisterPage = ({ onNavigate }) => {
         </form>
         <p className="text-center text-sm text-gray-600 dark:text-gray-400">
           Já tem uma conta?{' '}
-          <button
-            onClick={() => onNavigate('login')}
+          {/* A navegação agora é feita com o componente Link */}
+          <Link
+            to="/login"
             className="font-medium text-[#b554b5] hover:text-[#d44b84]"
           >
             Faça login
-          </button>
+          </Link>
         </p>
       </div>
     </div>
