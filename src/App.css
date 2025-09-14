@@ -13,4 +13,18 @@ html, body, #root {
   background: transparent; /* make scrollbar transparent */
 }
 
+/* Chatbot (animação) */
+
+/* Animação para o chatbot ao clicar */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @import 'tailwindcss'
