@@ -2,7 +2,7 @@
 
 **Bem-vinda ao App do Passa a Bola, uma aplicação web moderna desenhada para conectar e empoderar atletas de futebol feminino. A plataforma centraliza informações sobre jogos, campeonatos e permite a interação social através de um feed de vídeos, similar ao TikTok, focado em jogadas e treinos.**
 
-[🔗 Acesse a aplicação online](https://passa-a-bola-web-app.vercel.app/login)
+[🔗 Acesse a aplicação online](https://passa-a-bola-web-app.vercel.app)
 
 ---
 
