@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import SideNavBar from './SideNavBar.jsx';
-import BottomNavBar from './BottomNavBar.jsx';
+import SideNavBar from './SideNavbar.jsx';
+import BottomNavBar from './BottomNavbar.jsx';
 
 //Cria o "elemento pai" de todas as seções, elas serão renderizadas dentro deste layout,
 //que denpendendo do tamanho da tela, renderiza o navbar no inferior ou lateral
