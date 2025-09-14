@@ -54,7 +54,7 @@ const AgendaCalendario = () => {
       </div>
 
       {/* Grid do Calendário */}
-      <div className="grid grid-cols-7 gap-x-0 gap-y-0 place-items-center px-0">
+      <div className="grid grid-cols-7 gap-x-0 gap-y-0 place-items-center px-10">
         {diasDaSemana.map((dia) => (
           <div key={dia} className="font-semibold text-[12px] uppercase text-gray-400">
             {dia}
