@@ -34,9 +34,9 @@ const HubPage = () => {
         <h1 className="text-3xl font-bold text-white">{currentUser.name}</h1>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
         {/* Coluna Principal (Esquerda) */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-3 space-y-6">
           
           {/* 1. Componente do Calendário inserido aqui */}
                   <div>
@@ -45,7 +45,6 @@ const HubPage = () => {
             </h2>
             <AgendaCalendario />
           </div>
-
 
           {/* 2. Seção "Meus Campeonatos" */}
           <div>
@@ -70,7 +69,7 @@ const HubPage = () => {
         </div>
 
         {/* Coluna Lateral (Direita) */}
-        <div className="lg:col-span-1 space-y-6">
+        <div className="lg:col-span-2 space-y-6">
           {/* 3. Seção "Estatísticas" */}
           <div>
             <h2 className="font-semibold text-2xl mb-3 text-white">Estatísticas</h2>
