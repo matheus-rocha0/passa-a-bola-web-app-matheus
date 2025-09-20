@@ -33,7 +33,7 @@ const HubPage = () => {
   const handleCloseModal = () => setActiveModal(null);
 
   if (!currentUser) {
-    return <div className="p-8">Carregando dados da atleta...</div>;
+    return <div className="p-8 bg-gray-900 text-white min-h-screen">Carregando dados da atleta...</div>;
   }
 
   return (
