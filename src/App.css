@@ -16,14 +16,14 @@ html, body, #root {
 /* Chatbot (animação) */
 
 /* Animação para o chatbot ao clicar */
-@keyframes fadeInUp {
+@keyframes zoomIn {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    transform: scale(0.7);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 
