@@ -14,18 +14,21 @@ const RegisterPage = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+// src/pages/RegisterPage.jsx
+
+  const handleRegister = async (e) => { // 1. Adicionamos "async" aqui
     e.preventDefault();
     setError('');
     setSuccess('');
 
     // A função register agora vem do nosso contexto global
-    const result = register(name, email, password);
+    // 2. Adicionamos "await" para que o código espere a resposta do Supabase
+    const result = await register(name, email, password);
 
     if (result.success) {
       setSuccess(result.message);
-      // Redireciona para o login após 1 segundo
-      setTimeout(() => navigate('/login'), 1000);
+      // Aumentei o tempo para dar tempo de ler a mensagem de sucesso
+      setTimeout(() => navigate('/login'), 2500);
     } else {
       setError(result.message);
     }

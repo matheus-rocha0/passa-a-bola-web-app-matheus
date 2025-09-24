@@ -9,7 +9,7 @@ const ModalWrapper = ({ children, onClose, title }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white/10 dark:bg-gray-600/10 backdrop-blur-sm border border-white/20 dark:border-gray-700 rounded-lg shadow-xl w-11/12 max-w-4xl max-h-[90vh] flex flex-col animate-[scaleUp_0.3s_ease-out_forwards]"
+        className="bg-white/10 dark:bg-gray-600/10 backdrop-blur-sm border border-white/20 dark:border-gray-700 rounded-lg shadow-xl w-11/12 max-w-4xl max-h-[90vh] flex flex-col animate-[fadeInUp_0.3s_ease-out_forwards]"
       >
         <header className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">

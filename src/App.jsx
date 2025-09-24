@@ -12,6 +12,7 @@ import RegisterPage from './pages/RegisterPage';
 import HubPage from './pages/HubPage';
 import CourtsPage from './pages/CourtsPage';
 import FintaPage from './pages/FintaPage';
+import MyAccountPage from './pages/MyAccountPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<HubPage />} />
           <Route path="/courts" element={<CourtsPage />} />
           <Route path="/finta" element={<FintaPage />} />
+          <Route path="/minha-conta" element={<MyAccountPage />} />
         </Route>
       </Route>
     </Routes>

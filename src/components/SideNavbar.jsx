@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.js';
-import { Home, Map, Video, Trophy, LogOut } from 'lucide-react';
+import { Home, Map, Video, LogOut } from 'lucide-react';
 import logoPabOriginal from '../assets/img/logo-pab-original.png';
 
 const navItems = [
@@ -12,10 +12,13 @@ const navItems = [
 const SideNavBar = () => {
   const { currentUser, logout } = useAuth();
 
-  // Se não houver usuário, o componente não é renderizado.
   if (!currentUser) {
     return null;
   }
+
+  // Lógica para lidar com nome de usuário ausente
+  const displayName = currentUser.user_metadata?.full_name || currentUser.email;
+  const initial = displayName.charAt(0).toUpperCase();
 
   return (
     <aside className="hidden md:flex flex-col w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4">
@@ -35,7 +38,7 @@ const SideNavBar = () => {
             <li key={item.label}>
               <NavLink
                 to={item.path}
-                end // A prop 'end' garante que o link da home '/' só fica ativo na página exata
+                end
                 className={({ isActive }) =>
                   `flex items-center gap-3 w-full px-4 py-3 rounded-lg text-lg font-semibold transition-colors duration-200 ${
                     isActive
@@ -52,23 +55,21 @@ const SideNavBar = () => {
         </ul>
       </nav>
       <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-        <div className="flex items-center gap-3 mb-4">
+        <Link to="/minha-conta" className="flex items-center gap-3 mb-4 p-2 rounded-lg hover:bg-gray-700">
           <img
-            src={`https://placehold.co/40x40/b554b5/FFFFFF?text=${currentUser.name.charAt(
-              0,
-            )}`}
-            alt={currentUser.name}
+            src={`https://placehold.co/40x40/b554b5/FFFFFF?text=${initial}`}
+            alt={displayName}
             className="w-10 h-10 rounded-full"
           />
           <div>
             <p className="font-semibold text-gray-800 dark:text-white">
-              {currentUser.name}
+              {displayName}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               {currentUser.email}
             </p>
           </div>
-        </div>
+        </Link>
         <button
           onClick={logout}
           className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-lg font-semibold text-[#b554b5] dark:text-pink-400 hover:bg-pink-100/80 dark:hover:bg-[#b554b5]/20 transition-colors"
