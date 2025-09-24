@@ -41,7 +41,8 @@ const HubPage = () => {
       <div className="p-4 md:p-8 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-full">
         <header className="mb-6">
           <p className="text-md text-gray-600 dark:text-gray-400">Bem-vinda de volta,</p>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{currentUser.name}</h1>
+          {/* --- A CORREÇÃO ESTÁ AQUI --- */}
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{currentUser.user_metadata.full_name}</h1>
         </header>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
